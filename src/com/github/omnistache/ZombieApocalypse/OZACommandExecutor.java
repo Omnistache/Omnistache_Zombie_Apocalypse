@@ -12,26 +12,34 @@ public class OZACommandExecutor implements CommandExecutor {
 			String label, String[] args) {
 		
 		if(!command.getName().equalsIgnoreCase("oza")){
+			OZALog.log.info("OZACommandExecutor received a command that was not 'oza'");
+			return false;
 		}
 		
 		if(sender instanceof Player){
-			playerCommand(sender, command, label, args);
+			return playerCommand(sender, command, label, args);
 		}
 		else{
-			consoleCommand(sender, command, label, args);
-		}		
-		return false;
+			return consoleCommand(sender, command, label, args);
+		}
 	}
 
-	private void consoleCommand(CommandSender sender, Command command,
+	private boolean consoleCommand(CommandSender sender, Command command,
 			String label, String[] args) {
-			
+		OZALog.log.info("received console command: " + command.getName());
+		for (String arg : args){
+			OZALog.log.info(arg);
+		}
+		return true;
 	}
 
-	private void playerCommand(CommandSender sender, Command command,
+	private boolean playerCommand(CommandSender sender, Command command,
 			String label, String[] args) {
-		// TODO Auto-generated method stub
-		
+		OZALog.log.info("received player command from: " + sender.getName() + command.getName());
+		for (String arg : args){
+			OZALog.log.info(arg);
+		}
+		return true;	
 	}
 
 }

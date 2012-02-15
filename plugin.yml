@@ -1,0 +1,10 @@
+name: Omnistache Zombie Apocalyspe
+main: com.github.omnistache.ZombieApocalypse.ZombieApocalypse
+version: 0.0
+
+commands:
+	oza:
+		description: The general Omnistache Zombie Apocalypse command.
+		usage: /oza <command> [options...] (type "/oza help" for details)
+		permission: OZA.oza
+		permission-message: You require OZA.oza permission to use this command.
