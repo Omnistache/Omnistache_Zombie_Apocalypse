@@ -6,18 +6,23 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ZombieApocalypse extends JavaPlugin {
 	
-	private static OZACommandExecutor commandExecutor;
+	private OZACommandExecutor commandExecutor;
+	private OZAListener listener;
 	
 	public void onEnable(){
 		
-		init_CommandExecutor();
+		initialize_CommandExecutor();
 		
-		
+		initialize_Listener();
 		
 		OZALog.log.info("Omnistache's Zombie Apocalypse Mod has been enabled :)");
 	}
 	
-	private void init_CommandExecutor() {
+	private void initialize_Listener() {
+		listener = new OZAListener(this);
+	}
+
+	private void initialize_CommandExecutor() {
 		commandExecutor = new OZACommandExecutor();
 		getCommand("oza").setExecutor(commandExecutor);		
 	}

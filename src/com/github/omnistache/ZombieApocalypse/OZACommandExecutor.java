@@ -35,7 +35,7 @@ public class OZACommandExecutor implements CommandExecutor {
 
 	private boolean playerCommand(CommandSender sender, Command command,
 			String label, String[] args) {
-		OZALog.log.info("received player command from: " + sender.getName() + command.getName());
+		OZALog.log.info("received player command from " + sender.getName() + ":" + command.getName());
 		for (String arg : args){
 			OZALog.log.info(arg);
 		}
